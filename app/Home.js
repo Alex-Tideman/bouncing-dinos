@@ -4,7 +4,7 @@ import {
   View
 } from 'react-native';
 
-export default class Home extends Component {
+export class Home extends Component {
   render() {
     return (
       <Text>Hello World</Text>
