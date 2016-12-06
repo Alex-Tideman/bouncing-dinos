@@ -1,0 +1,3 @@
+rootProject.name = 'BouncingDinos'
+
+include ':app'
