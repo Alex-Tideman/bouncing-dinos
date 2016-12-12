@@ -8,6 +8,7 @@ import {
   ScrollView,
   Animated
 } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 export class DinoScroll extends Component {
   state = {count: 0}
@@ -24,104 +25,11 @@ export class DinoScroll extends Component {
     this.anim = this.anim || new Animated.Value(0);
     return (
       <ScrollView
-        horizontal={horizontal}
-        onScroll={() => {
-            Animated.spring(this.anim, {
-              toValue: 0,   // Returns to the start
-              velocity: 2,  // Velocity makes it move
-              tension: -5, // Slow
-              friction: 1,  // Oscillate a lot
-            }).start(); }} >
-        <Animated.Image style={[styles.dino, {
-              transform: [   // Array order matters
-                {scale: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [1, 4],
-                })},
-                {translateX: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0, 100],
-                })},
-                {rotate: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [
-                    '0deg', `120deg` // 'deg' or 'rad'
-                  ],
-                })},
-              ]}
-            ]} source={require('./images/allasaur.jpeg')} />
-        <Animated.Image style={[styles.dino, {
-              transform: [   // Array order matters
-                {scale: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [1, 4],
-                })},
-                {translateX: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0, 100],
-                })},
-                {rotate: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [
-                    '0deg', `120deg` // 'deg' or 'rad'
-                  ],
-                })},
-              ]}
-            ]} source={require('./images/pterodactyl.jpg')} />
-        <Animated.Image style={[styles.dino, {
-              transform: [   // Array order matters
-                {scale: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [1, 4],
-                })},
-                {translateX: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0, 100],
-                })},
-                {rotate: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [
-                    '0deg', `120deg` // 'deg' or 'rad'
-                  ],
-                })},
-              ]}
-            ]} source={require('./images/stegosaurus.jpeg')} />
-        <Animated.Image style={[styles.dino, {
-              transform: [   // Array order matters
-                {scale: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [1, 4],
-                })},
-                {translateX: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0, 100],
-                })},
-                {rotate: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [
-                    '0deg', `120deg` // 'deg' or 'rad'
-                  ],
-                })},
-              ]}
-            ]} source={require('./images/trex.png')} />
-        <Animated.Image style={[styles.dino, {
-              transform: [   // Array order matters
-                {scale: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [1, 4],
-                })},
-                {translateX: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0, 100],
-                })},
-                {rotate: this.anim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [
-                    '0deg', `120deg` // 'deg' or 'rad'
-                  ],
-                })},
-              ]}
-            ]} source={require('./images/allasaur.jpeg')} />
+        horizontal={horizontal} >
+        <Animatable.Image animation="zoomInUp" style={[styles.dino]} source={require('./images/allasaur.jpeg')} />
+        <Animatable.Image animation="zoomInUp" delay={500} style={[styles.dino]} source={require('./images/pterodactyl.jpg')} />
+        <Animatable.Image animation="zoomInUp" delay={1000}style={[styles.dino]} source={require('./images/stegosaurus.jpeg')} />
+        <Animatable.Image animation="zoomInUp" delay={1500} style={[styles.dino]} source={require('./images/trex.png')} />
       </ScrollView>
     )
   }
