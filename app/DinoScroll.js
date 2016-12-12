@@ -129,7 +129,8 @@ export class DinoScroll extends Component {
 
 const styles = StyleSheet.create({
   dino: {
-    height: 250,
+    padding: 20,
+    height: 220,
     width: 250,
     shadowColor: '#000',
     shadowRadius: 5,
