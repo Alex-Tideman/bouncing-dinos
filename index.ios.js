@@ -1,25 +1,13 @@
-
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View } from 'react-native';
-import { Home } from './app/Home';
+import { AppRegistry } from 'react-native';
+import App from './app/App';
 
-class Main extends Component {
+class Main extends Component{
   render() {
     return (
-      <View style={styles.container}>
-        <Home style={styles.home} />
-      </View>
+      <App />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 50,
-  }
-})
 
 AppRegistry.registerComponent('BouncingDinos', () => Main);
