@@ -1,45 +1,13 @@
-
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Switch, Navigator } from 'react-native';
-import { DinoScroll } from './app/DinoScroll';
+import { AppRegistry } from 'react-native';
+import App from './app/App';
 
-class Main extends Component {
-
-  state = {
-    horizontalIsOn: false,
-  };
-
+class Main extends Component{
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.header}>Welcome to Bouncing Dinos!</Text>
-        <Text>Scroll Horizontal</Text>
-        <Switch
-          onValueChange={(value) => this.setState({horizontalIsOn: value})}
-          style={{marginBottom: 10}}
-          value={this.state.horizontalIsOn} />
-        <DinoScroll horizontal={this.state.horizontalIsOn} />
-      </View>
+      <App />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 100,
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: '100',
-    textAlign: 'center',
-    marginBottom: 25,
-  },
-  dinoList: {
-    marginBottom: 25,
-  },
-})
 
 AppRegistry.registerComponent('BouncingDinos', () => Main);
