@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
-import App from './app/App';
+import { AppRegistry, StyleSheet } from 'react-native';
+import {
+  Text,
+  View
+} from 'react-native';
 
-class Main extends Component{
+class App extends Component {
   render() {
     return (
-      <App />
+      <Text style={styles.hello}>Hello World</Text>
     );
   }
 }
 
-AppRegistry.registerComponent('BouncingDinos', () => Main);
+const styles = StyleSheet.create({
+  hello: {
+    flex: 1,
+    justifyContent: 'center',
+    textAlign: 'center',
+    top: 200,
+  }
+})
+
+AppRegistry.registerComponent('BouncingDinos', () => App);
