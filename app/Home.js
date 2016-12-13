@@ -8,7 +8,7 @@ import { DinoScroll } from './DinoScroll';
 import { DinoFacts } from './DinoFacts';
 
 
-export class Main extends Component {
+export class Home extends Component {
 
   state = {
     horizontalIsOn: false,
@@ -17,7 +17,7 @@ export class Main extends Component {
   render() {
     return (
       <View>
-        <Text>Main Route</Text>
+        <Text>Home Route</Text>
       </View>
     )
   }
