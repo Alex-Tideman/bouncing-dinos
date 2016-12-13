@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
+import { 
+  StyleSheet,
+  Text, View, Switch, TouchableHighlight
+} from 'react-native';
 import { DinoScroll } from './DinoScroll';
-import { Main } from './Main';
 
 
 export default class App extends Component {
@@ -13,25 +15,19 @@ export default class App extends Component {
   render() {
 
     return (
-      <Navigator
-        initialRoute={{ component: Main, title: 'Welcome to Bouncing Dinos!' }}
-        renderScene={(route, navigator) => {
-          let RouteComponent = route.component;
-          return (
-            <View style={styles.container}>
-              <Text style={styles.header}>{route.title}</Text>
-              <RouteComponent {...route} navigator={navigator} />
-            </View>
-          )
-        }}
-        configureScene={(route, routeStack) =>
-          Navigator.SceneConfigs.FloatFromBottom}
-      />
+      <View style={styles.container}>
+        <Text style={styles.header}>Welcome to Bouncing Dinos!</Text>
+        <Text>Scroll Horizontal</Text>
+        <Switch
+          onValueChange={(value) => this.setState({horizontalIsOn: value})}
+          style={{marginBottom: 10}}
+          value={this.state.horizontalIsOn} />
+        <DinoScroll horizontal={this.state.horizontalIsOn} />
+      </View>
     );
   }
 }
 
-let { height, width } = Dimensions.get(`window`);
 const styles = StyleSheet.create({
     container: {
       flex: 1,

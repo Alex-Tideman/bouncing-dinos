@@ -1,66 +1,17 @@
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, Text, View, TouchableHighlight, Navigator } from 'react-native';
-import { DinoScroll } from './DinoScroll';
+import { 
+  Dimensions,
+  StyleSheet,
+  Text, View, TouchableHighlight,
+  Navigator
+} from 'react-native';
 
 export class DinoFacts extends Component {
 
   render() {
-    const routes = [
-      { dinoName: 'allasaur', diet: 'carnivore', size: '28 feet, 2.3 tons' },
-      { dinoName: 'pterodactyl', diet: 'carnivore', size: '20 feet, 2 tons' },
-      { dinoName: 'stegosaurus', diet: 'herbivore', size: '30 feet, 5 tons' },
-      { dinoName: 't-rex', diet: 'carnivore', size: '42 feet, 7 tons' },
-    ];
-
     return (
       <View>
-
-        <TouchableHighlight onPress={() => this.props.navigator.pop()}>
-          <Text style={styles.navLink}>Back</Text>
-        </TouchableHighlight>
-
-        <Navigator
-          style={styles.navContainer}
-          initialRoute={routes[0]}
-          initialRouteStack={routes}
-          renderScene={(route, navigator) => {
-            return (
-              <View style={styles.dinoFacts}>
-                <Text>Diet: {route.diet}</Text>
-                <Text>Size: {route.size}</Text>
-              </View>
-            );
-          }}
-
-          navigationBar={
-            <Navigator.NavigationBar
-              routeMapper={{
-                LeftButton: (route, navigator, index, navState) => { 
-                  return (
-                    <TouchableHighlight onPress={() => navigator.pop()}>
-                      <Text style={styles.prevButton}>Prev</Text>
-                    </TouchableHighlight>
-                  );
-                },
-
-                RightButton: (route, navigator, index, navState) => {
-                  return (
-                    <TouchableHighlight onPress={() => navigator.push(routes[index + 1])}>
-                      <Text style={styles.nextButton}>Next</Text>
-                    </TouchableHighlight>
-                  );
-                },
-
-                Title: (route, navigator, index, navState) => { 
-                  return (
-                    <Text style={styles.dinoHeader}>{route.dinoName}</Text>
-                  );
-                },
-              }}
-              style={styles.navBar}
-            />
-          }
-        />
+        <Text>Dino Facts Route</Text>
       </View>
     )
   }
