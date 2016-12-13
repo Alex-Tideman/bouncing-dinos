@@ -10,8 +10,9 @@ export class DinoFacts extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Dino Facts Route</Text>
+      <View style={styles.container}>
+        <Text style={styles.header}>{this.props.title}</Text>
+        <Text>Whooo learning about dinos</Text>
       </View>
     )
   }
